@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elokuva-arvostelut</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="nav-text" href="index.html">Elokuva &#9733 Arvostelut</a>
+        <form class="search">
+            <i class="fa fa-search"></i>
+            <input id="haku" type="text" placeholder="Hae">
+        </form>
+    </div>
+</nav>
+<div id="slides" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="mask1" src="img/hollywood.jpg">
+            <div class="carousel-caption">
+                <h1 class="display-2">Elokuva-arvostelut</h1>
+                <h3>Kirjoita ja lue arvosteluja!</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<h1 class="center-text">Arvostelut</h1>
+<div id="items">
+    <h1 class="center-text">Aloita kirjoittamalla hakukenttään</h1>
+</div>
+<button class="open-button" onclick="openForm()">Kirjoita arvostelu</button>
+<div class="form-popup" id="myForm">
+    <form id="theForm" class="form-container">
+        <h1>Kirjoita arvostelu</h1>
+        <label>Elokuvan nimi (Max. 50 merkkiä)<input type="text" placeholder="Anna nimi..." name="nimi" id="nimi" maxlength="50" required></label>
+        <label>Kommentti (Max. 300 merkkiä)<input type="text" placeholder="Anna kommentti..." name="kommentti" id="kommentti"
+                                          maxlength="300" required></label>
+        <label>Arvosana</label>
+        <select name="arvosana" id="arvosana" required>
+            <option value="" disabled selected>Valitse arvosana tästä...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button type="submit" class="btn">Lähetä arvostelu</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Sulje lomake</button>
+    </form>
+</div>
+<button onclick="topFunction()" id="myBtn" title="Takaisin ylös"><i class="fa fa-arrow-up"></i></button>
+<script src="js/arvostelut.js"></script>
+<script>
+    // Näytä nappula, kun on scrollattu 20px alaspäin documentin yläosasta
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    //Käyttäjän painaessa nappulaa, scrollaa documentin yläosaan
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+body {
+    min-height: 100%;
+    position: relative;
+    background-image: linear-gradient(to right, darkorange, orange, darkorange);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top:50%;
+    transform: translateY(-99%);
+}
+
+.carousel-caption h1 {
+    color: black;
+    font-size: 500%;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px #000;
+}
+
+.carousel-caption h3 {
+    color: fuchsia;
+    font-size: 200%;
+    font-weight: 500;
+    text-shadow: 1px 1px 15px #000;
+}
+
+.mask1 {
+    border-bottom: solid whitesmoke 3px;
+}
+
+.center-text {
+    text-align: center;
+    text-shadow: 0 0 10px black;
+    text-transform: uppercase;
+    font-size: 200%;
+    color: black;
+    padding: 1em 0;
+}
+
+#items {
+    padding: 0 0 4em 0;
+}
+
+.review {
+    border: solid 2px #FFFFFF;
+    box-shadow: 10px 10px 5px #454545;
+    background-color: #E5E5E5;
+    border-radius: 3em 0 3em 3em;
+    margin: 2em;
+    padding: 0 2em 2em 2em;
+    position: relative;
+}
+
+.review h3 {
+    text-align: center;
+    border-bottom: solid 2px black;
+    padding: 1rem;
+}
+
+.review dd {
+    border-bottom: solid 1px grey;
+}
+
+.open-button {
+    z-index: 1;
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+.nav-text {
+    color: black;
+}
+
+.nav-text:hover {
+    color: orange;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container select {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container select:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel {
+    background-color: red;
+}
+
+/*---Media Queries --*/
+@media (max-width: 768px) {
+    .review dd, dt  {
+        text-align: center;
+    }
+
+    .carousel-caption {
+        top: 45%;
+    }
+
+    .carousel-caption h1 {
+        font-size: 350%;
+    }
+
+    .carousel-caption h3 {
+        font-size: 140%;
+        font-weight: 400;
+        padding-bottom: .2rem;
+    }
+
+    .open-button {
+        z-index: 1;
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 23px;
+        right: 28px;
+        width: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption {
+        top: 40%;
+    }
+
+    .carousel-caption h1 {
+        font-size: 250%;
+    }
+
+    .carousel-caption h3 {
+        font-size: 110%;
+    }
+
+    #myBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 10px; /* Place the button at the bottom of the page */
+        left: 10px; /* Place the button 30px from the right */
+        z-index: 0; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 16px 20px;
+        font-size: 18px; /* Increase font size */
+    }
+    .nav-text {
+        font-size: 14px;
+    }
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 23px; /* Place the button at the bottom of the page */
+    left: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    font-size: 18px; /* Increase font size */
+    background-color: #555;
+    padding: 16px 20px;
+    opacity: 0.8;
+}
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
