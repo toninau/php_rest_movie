@@ -1,7 +1,7 @@
 'use strict';
 
 //Haku funktio. Hakee haku tulokset palvelimelta JSON muotoisena.
-function search() {
+function search(event) {
 	var str = document.getElementById('haku').value;
 	var div = document.getElementById('items');
 	div.innerHTML = '';
@@ -45,7 +45,7 @@ function search() {
 				}
 			}
 		};
-		xmlhttp.open('GET', 'api/arvostelu/read_byname.php?nimi=' + str, true);
+		xmlhttp.open('GET', 'api/review/read_byname.php?nimi=' + str, true);
 		xmlhttp.send();
 	} else {
 		//hakupalkissa ei ole merkkejä
@@ -54,6 +54,7 @@ function search() {
 		write.innerHTML = 'Kirjoita hakukenttään';
 		div.appendChild(write);
 	}
+	event.preventDefault();
 }
 
 // Lähettää lomakkeen tiedot JSON muodossa palvelimelle.
@@ -62,18 +63,18 @@ function processForm(event) {
 	var kommentti = document.getElementById('kommentti').value;
 	var arvosana = document.getElementById('arvosana').value;
 	var json = {
-		"nimi": nimi,
-		"kommentti": kommentti,
-		"arvosana": arvosana
+		'nimi': nimi,
+		'kommentti': kommentti,
+		'arvosana': arvosana
 	};
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var result = JSON.parse(xmlhttp.responseText);
-            alert(result.message);
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var result = JSON.parse(xmlhttp.responseText);
+			alert(result.message);
 		}
 	};
-	xmlhttp.open('POST', 'api/arvostelu/create.php', true);
+	xmlhttp.open('POST', 'api/review/create.php', true);
 	//Headerit
 	xmlhttp.setRequestHeader('Content-type', 'application/json');
 	var data = JSON.stringify(json);
@@ -81,29 +82,29 @@ function processForm(event) {
 	// Estää sivun uudelleen lataamisen
 	event.preventDefault();
 	// Resetoi formin, kun se lähetetään
-    document.getElementById('theForm').reset();
+	document.getElementById('theForm').reset();
 	// Sulkee formin, kun se lähetetään
-    closeForm();
+	closeForm();
 }
 
 // Avaa formin/lomakkeen
 function openForm() {
-    document.getElementById('myForm').style.display = 'block';
-    document.getElementById("myBtn").style.display = "none";
+	document.getElementById('myForm').style.display = 'block';
+	document.getElementById('myBtn').style.display = 'none';
 }
 
 // Sulkee formin/lomakkeen
 function closeForm() {
-    document.getElementById('myForm').style.display = 'none';
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
-    }
+	document.getElementById('myForm').style.display = 'none';
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		document.getElementById('myBtn').style.display = 'block';
+	}
 }
 
 // suoritetaan, kun ikkuna latautunut
 function init() {
+	document.getElementById('search-form').onsubmit = search;
 	document.getElementById('theForm').onsubmit = processForm;
-	document.getElementById('haku').onkeyup = search;
 }
 
 window.onload = init;

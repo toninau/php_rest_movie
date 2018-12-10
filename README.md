@@ -1,21 +1,21 @@
 # Movie-Reviews
 
 Toni Naumanen<br>
-Sisältää mm. yksikkötestit, REST-api, tietokanta, käyttöliittymä.
+includes: REST-api, database, user interface.
 
-## REST-rajapinnan kuvaus
+## REST-api
 
 Tietokanta koostuu arvoista id (int 11, AUTO_INCREMENT), nimi (varchar 50), kommentti (varchar 300), arvosana (int 11), aika (datetime, CURRENT_TIMESTAMP).
 
 ### Create
 
-.../api/arvostelu/create.php
+.../api/review/create.php
 
 Luo arvostelun. ID annetaan automaattisesti.
 
 ```
 Esimerkki:
-POST http://localhost/.../api/arvostelu/create.php
+POST http://localhost/.../api/review/create.php
 Content-Type: application/json
 
 {
@@ -43,13 +43,13 @@ Arvostelun luonti epäonnistui.
 
 ### Delete
 
-.../api/arvostelu/delete.php
+.../api/review/delete.php
 
 Poistaa arvostelun id:n perusteella.
 
 ```
 Esimerkki:
-DELETE http://localhost/.../api/arvostelu/delete.php
+DELETE http://localhost/.../api/review/delete.php
 Content-Type: application/json
 
 {

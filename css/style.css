@@ -1,46 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    line-height:1;
+    box-sizing: border-box;
+}
+
 body {
     min-height: 100%;
     position: relative;
     background-image: linear-gradient(to right, darkorange, orange, darkorange);
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    padding: 4em 0 0 0;
+
 }
 
-.carousel-inner img {
+/*topnav*/
+.topnav {
+    background-color: white;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 100%;
+    z-index: 999;
+    padding: 0.7em 0;
+    border-bottom: 2px solid black;
 }
 
-.carousel-caption {
+#search-form {
+    position: relative;
+    float: right;
+    margin-right: 1em;
+    width: 350px;
+    height: 40px;
+    border-radius: 40px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+
+#haku {
     position: absolute;
-    top:50%;
-    transform: translateY(-99%);
+    top: 10px;
+    left: 42px;
+    font-size: 14px;
+    background: none;
+    color: #5a6674;
+    width: 280px;
+    height: 20px;
+    border: none;
+    appearance: none;
+    outline: none;
 }
 
-.carousel-caption h1 {
-    color: black;
-    font-size: 500%;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 15px #000;
+#haku-btn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    height: 20px;
+    width: 20px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none!important;
+    cursor: pointer;
 }
 
-.carousel-caption h3 {
-    color: fuchsia;
-    font-size: 200%;
-    font-weight: 500;
-    text-shadow: 1px 1px 15px #000;
-}
-
-.mask1 {
-    border-bottom: solid whitesmoke 3px;
+#haku-btn svg {
+    width: 20px;
+    height: 20px;
 }
 
 .center-text {
     text-align: center;
     text-shadow: 0 0 10px black;
     text-transform: uppercase;
-    font-size: 200%;
+    font-size: 2em;
     color: black;
     padding: 1em 0;
+    font-weight: lighter;
 }
 
 #items {
@@ -55,16 +93,26 @@ body {
     margin: 2em;
     padding: 0 2em 2em 2em;
     position: relative;
+    color: rgba(0, 0, 0, 0.85);
 }
 
 .review h3 {
     text-align: center;
     border-bottom: solid 2px black;
     padding: 1rem;
+    margin: 0 0 1rem 0;
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+.review dt {
+    font-weight: bold;
+    margin: 0.5rem 0 0.5rem 0;
 }
 
 .review dd {
     border-bottom: solid 1px grey;
+    padding: 0 0 0.5rem 0;
 }
 
 .open-button {
@@ -79,14 +127,6 @@ body {
     bottom: 23px;
     right: 28px;
     width: 280px;
-}
-
-.nav-text {
-    color: black;
-}
-
-.nav-text:hover {
-    color: orange;
 }
 
 /* The popup form - hidden by default */
@@ -137,24 +177,26 @@ body {
     background-color: red;
 }
 
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 23px; /* Place the button at the bottom of the page */
+    left: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    font-size: 18px; /* Increase font size */
+    background-color: #555;
+    padding: 16px 20px;
+    opacity: 0.8;
+}
+
 /*---Media Queries --*/
 @media (max-width: 768px) {
     .review dd, dt  {
         text-align: center;
-    }
-
-    .carousel-caption {
-        top: 45%;
-    }
-
-    .carousel-caption h1 {
-        font-size: 350%;
-    }
-
-    .carousel-caption h3 {
-        font-size: 140%;
-        font-weight: 400;
-        padding-bottom: .2rem;
     }
 
     .open-button {
@@ -173,18 +215,6 @@ body {
 }
 
 @media (max-width: 576px) {
-    .carousel-caption {
-        top: 40%;
-    }
-
-    .carousel-caption h1 {
-        font-size: 250%;
-    }
-
-    .carousel-caption h3 {
-        font-size: 110%;
-    }
-
     #myBtn {
         display: none; /* Hidden by default */
         position: fixed; /* Fixed/sticky position */
@@ -203,40 +233,4 @@ body {
     }
 }
 
-/*--- Bootstrap Padding Fix --*/
-[class*="col-"] {
-    padding: 1rem;
-}
 
-#myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 23px; /* Place the button at the bottom of the page */
-    left: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    font-size: 18px; /* Increase font size */
-    background-color: #555;
-    padding: 16px 20px;
-    opacity: 0.8;
-}
-
-/*
-Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap
-
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-*/

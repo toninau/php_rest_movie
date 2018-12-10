@@ -1,36 +1,18 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Elokuva-arvostelut</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <title>Movie Reviews</title>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-        <a class="nav-text" href="index.html">Elokuva &#9733 Arvostelut</a>
-        <form class="search">
-            <i class="fa fa-search"></i>
-            <input id="haku" type="text" placeholder="Hae">
-        </form>
-    </div>
-</nav>
-<div id="slides" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="mask1" src="img/hollywood.jpg">
-            <div class="carousel-caption">
-                <h1 class="display-2">Elokuva-arvostelut</h1>
-                <h3>Kirjoita ja lue arvosteluja!</h3>
-            </div>
-        </div>
-    </div>
+<div class="topnav">
+    <form id="search-form">
+        <input type="text" id="haku" placeholder="Hae">
+        <button type="submit" id="haku-btn"><i class="fa fa-search"></i></button>
+    </form>
 </div>
 <h1 class="center-text">Arvostelut</h1>
 <div id="items">
@@ -57,7 +39,7 @@
     </form>
 </div>
 <button onclick="topFunction()" id="myBtn" title="Takaisin ylös"><i class="fa fa-arrow-up"></i></button>
-<script src="js/arvostelut.js"></script>
+<script src="js/reviews.js"></script>
 <script>
     // Näytä nappula, kun on scrollattu 20px alaspäin documentin yläosasta
     window.onscroll = function () {
