@@ -2,7 +2,7 @@
 
 //Haku funktio. Hakee haku tulokset palvelimelta JSON muotoisena.
 function search(event) {
-	var str = document.getElementById('haku').value;
+	var str = document.getElementById('search').value;
 	var div = document.getElementById('items');
 	div.innerHTML = '';
 	// Hakupalkissa merkkejä
@@ -15,7 +15,7 @@ function search(event) {
 				if (results.message == 'Ei arvosteluja') {
 					var write = document.createElement('h1');
 					write.className = 'center-text';
-					write.innerHTML = 'Ei hakutuloksia';
+					write.innerHTML = 'No search results';
 					div.appendChild(write);
 				} else {
 					for (var i = 0; i < results.length; i++) {
@@ -33,11 +33,11 @@ function search(event) {
 						// HTML muotoilu tiedoille
 						section.innerHTML = '<h3>' + results[i].nimi + '</h3>' +
 							'<dl>' +
-								'<dt>Kommentti</dt>' +
+								'<dt>Comment</dt>' +
 								'<dd>' + results[i].kommentti + '</dd>' +
-								'<dt>Arvosana</dt>' +
+								'<dt>Rating</dt>' +
 								'<dd>' + stars + '</dd>' +
-								'<dt>Aika</dt>' +
+								'<dt>Time</dt>' +
 								'<dd>' + results[i].aika + '</dd>' +
 							'</dl>';
 						div.appendChild(section);
@@ -51,7 +51,7 @@ function search(event) {
 		//hakupalkissa ei ole merkkejä
 		var write = document.createElement('h1');
 		write.className = 'center-text';
-		write.innerHTML = 'Kirjoita hakukenttään';
+		write.innerHTML = 'Type into the search box';
 		div.appendChild(write);
 	}
 	event.preventDefault();
@@ -59,13 +59,13 @@ function search(event) {
 
 // Lähettää lomakkeen tiedot JSON muodossa palvelimelle.
 function processForm(event) {
-	var nimi = document.getElementById('nimi').value;
-	var kommentti = document.getElementById('kommentti').value;
-	var arvosana = document.getElementById('arvosana').value;
+	var name = document.getElementById('name').value;
+	var comment = document.getElementById('comment').value;
+	var rating = document.getElementById('rating').value;
 	var json = {
-		'nimi': nimi,
-		'kommentti': kommentti,
-		'arvosana': arvosana
+		'nimi': name,
+		'kommentti': comment,
+		'arvosana': rating
 	};
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {

@@ -9,33 +9,38 @@
 </head>
 <body>
 <div class="topnav">
+    <a class="nav-text" href="index.html">Movie &#9733 Reviews</a>
     <form id="search-form">
-        <input type="text" id="haku" placeholder="Hae">
-        <button type="submit" id="haku-btn"><i class="fa fa-search"></i></button>
+        <input type="text" id="search" placeholder="Search...">
+        <button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
     </form>
 </div>
-<h1 class="center-text">Arvostelut</h1>
-<div id="items">
-    <h1 class="center-text">Aloita kirjoittamalla hakukenttään</h1>
+<div class="image-container">
+    <img class="responsive-image" src="img/hollywood.jpg">
+    <div class="image-text">Movie Reviews</div>
 </div>
-<button class="open-button" onclick="openForm()">Kirjoita arvostelu</button>
+<h1 class="center-text">Reviews</h1>
+<div id="items">
+    <h1 class="center-text">Start by typing into the search box</h1>
+</div>
+<button class="open-button" onclick="openForm()">Write review</button>
 <div class="form-popup" id="myForm">
     <form id="theForm" class="form-container">
-        <h1>Kirjoita arvostelu</h1>
-        <label>Elokuvan nimi (Max. 50 merkkiä)<input type="text" placeholder="Anna nimi..." name="nimi" id="nimi" maxlength="50" required></label>
-        <label>Kommentti (Max. 300 merkkiä)<input type="text" placeholder="Anna kommentti..." name="kommentti" id="kommentti"
+        <h1>Write review</h1>
+        <label>Movie's name (Max. 50 characters)<input type="text" placeholder="Movie name..." name="name" id="name" maxlength="50" required></label>
+        <label>Comment (Max. 300 characters)<input type="text" placeholder="Comment about the movie..." name="comment" id="comment"
                                           maxlength="300" required></label>
-        <label>Arvosana</label>
-        <select name="arvosana" id="arvosana" required>
-            <option value="" disabled selected>Valitse arvosana tästä...</option>
+        <label>Rating</label>
+        <select name="rating" id="rating" required>
+            <option value="" disabled selected>Choose rating...</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        <button type="submit" class="btn">Lähetä arvostelu</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Sulje lomake</button>
+        <button type="submit" class="btn">Send review</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close form</button>
     </form>
 </div>
 <button onclick="topFunction()" id="myBtn" title="Takaisin ylös"><i class="fa fa-arrow-up"></i></button>
