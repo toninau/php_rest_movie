@@ -95,21 +95,28 @@ function processForm(event) {
 // Avaa formin/lomakkeen
 function openForm() {
 	document.getElementById('myForm').style.display = 'block';
-	document.getElementById('myBtn').style.display = 'none';
+	document.getElementById('top-btn').style.display = 'none';
 }
 
 // Sulkee formin/lomakkeen
 function closeForm() {
 	document.getElementById('myForm').style.display = 'none';
-	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-		document.getElementById('myBtn').style.display = 'block';
-	}
+	document.getElementById('top-btn').style.display = 'block';
+}
+
+//Käyttäjän painaessa nappulaa, scrollaa documentin yläosaan
+function topFunction() {
+	document.body.scrollTop = 0; // For Safari
+	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
 // suoritetaan, kun ikkuna latautunut
 function init() {
 	document.getElementById('search-form').onsubmit = search;
 	document.getElementById('theForm').onsubmit = processForm;
+	document.getElementById('top-btn').onclick = topFunction;
+	document.getElementById('cancel').onclick = closeForm;
+	document.getElementById('open-button').onclick = openForm;
 }
 
 window.onload = init;

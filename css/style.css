@@ -50,7 +50,6 @@ body {
     width: 290px;
     height: 20px;
     border: none;
-    appearance: none;
     outline: none;
 
 }
@@ -162,11 +161,11 @@ body {
 /*Main image end*/
 
 /*Form*/
-.open-button {
+#open-button {
     z-index: 1;
     background-color: #555;
+    font-size: 18px;
     color: white;
-    padding: 16px 20px;
     border: none;
     cursor: pointer;
     opacity: 0.8;
@@ -174,6 +173,8 @@ body {
     bottom: 23px;
     right: 28px;
     width: 280px;
+    height: 40px;
+    text-align: center;
 }
 
 .form-popup {
@@ -220,26 +221,27 @@ body {
     opacity: 0.8;
 }
 
-.form-container .cancel {
+.form-container #cancel {
     background-color: red;
 }
 /*Form end*/
 
 /*Back to top button*/
-#myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
+#top-btn {
+    position: fixed;
     bottom: 23px;
     left: 28px;
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
+    z-index: 99;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
     font-size: 18px;
+    height: 40px;
+    width: 40px;
     background-color: #555;
-    padding: 16px 20px;
     opacity: 0.8;
+    text-align: center;
 }
 /*Back to top button end*/
 
@@ -261,18 +263,8 @@ body {
         font-size: 4em;
     }
 
-    .open-button {
-        z-index: 1;
-        background-color: #555;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        opacity: 0.8;
-        position: fixed;
-        bottom: 23px;
-        right: 28px;
-        width: 200px;
+    #open-button {
+        width: 160px;
     }
 
     .center-text {
@@ -287,20 +279,6 @@ body {
 
     #search {
         width: 70px;
-    }
-
-    #myBtn {
-        display: none; /* Hidden by default */
-        position: fixed; /* Fixed/sticky position */
-        bottom: 10px; /* Place the button at the bottom of the page */
-        left: 10px; /* Place the button 30px from the right */
-        z-index: 0; /* Make sure it does not overlap */
-        border: none; /* Remove borders */
-        outline: none; /* Remove outline */
-        color: white; /* Text color */
-        cursor: pointer; /* Add a mouse pointer on hover */
-        padding: 16px 20px;
-        font-size: 18px; /* Increase font size */
     }
 
     .image-text {

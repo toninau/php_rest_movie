@@ -10,7 +10,7 @@
 <body>
 <div class="topnav">
     <a class="nav-text" href="index.html">Movie &#9733 Reviews</a>
-    <form id="search-form">
+    <form id="search-form" title="Search for movie by name">
         <input type="text" id="search" placeholder="Search...">
         <button type="submit" id="search-btn"><i class="fa fa-search"></i></button>
     </form>
@@ -23,7 +23,7 @@
 <div id="items">
     <h1 class="center-text">Start by typing into the search box</h1>
 </div>
-<button class="open-button" onclick="openForm()">Write review</button>
+<button id="open-button" title="Open form to write review">Write review</button>
 <div class="form-popup" id="myForm">
     <form id="theForm" class="form-container">
         <h1>Write review</h1>
@@ -40,30 +40,10 @@
             <option value="5">5</option>
         </select>
         <button type="submit" class="btn">Send review</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close form</button>
+        <button type="button" class="btn" id="cancel">Close form</button>
     </form>
 </div>
-<button onclick="topFunction()" id="myBtn" title="Back to top"><i class="fa fa-arrow-up"></i></button>
+<button id="top-btn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
 <script src="js/reviews.js"></script>
-<script>
-    // Näytä nappula, kun on scrollattu 20px alaspäin documentin yläosasta
-    window.onscroll = function () {
-        scrollFunction()
-    };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("myBtn").style.display = "block";
-        } else {
-            document.getElementById("myBtn").style.display = "none";
-        }
-    }
-
-    //Käyttäjän painaessa nappulaa, scrollaa documentin yläosaan
-    function topFunction() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    }
-</script>
 </body>
 </html>
