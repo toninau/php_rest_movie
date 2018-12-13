@@ -4,7 +4,10 @@
 function search(event) {
 	var str = document.getElementById('search').value;
 	var div = document.getElementById('items');
-	div.innerHTML = '';
+	// Tyhjentää divin arvosteluista jne.
+	while (div.firstChild) {
+		div.removeChild(div.firstChild);
+	}
 	// Hakupalkissa merkkejä
 	if (str.length > 0) {
 		var xmlhttp = new XMLHttpRequest();
