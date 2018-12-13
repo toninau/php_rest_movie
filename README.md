@@ -1,11 +1,11 @@
 # Movie-Reviews
 
-Toni Naumanen<br>
+Made by: Toni Naumanen<br>
 includes: REST-api, database, user interface.
 
 ## REST-api
 
-Tietokanta koostuu arvoista id (int 11, AUTO_INCREMENT), nimi (varchar 50), kommentti (varchar 300), arvosana (int 11), aika (datetime, CURRENT_TIMESTAMP).
+Rest-api description is in finnish.
 
 ### Create
 
@@ -75,14 +75,14 @@ Arvostelun poisto epäonnistui.
 
 ### Read
 
-.../api/arvostelu/read.php
+.../api/review/read.php
 
 Hakee tietokannan kaikki arvostelut.
 Palauttaa listan.
 
 ```
 Esimerkki:
-GET http://localhost/.../api/arvostelu/read.php
+GET http://localhost/.../api/review/read.php
 
 Tulos:
 [
@@ -108,14 +108,14 @@ Jos ei arvosteluja ei löytynyt.
 
 ### Read_byname
 
-.../api/arvostelu/read_byname.php?nimi=...
+.../api/review/read_byname.php?nimi=...
 
 Hakee tietokannasta arvostelun/arvostelut.
 Palauttaa listan.
 
 ```
 Esimerkki:
-GET http://localhost/.../api/arvostelu/read_byname.php?nimi=j
+GET http://localhost/.../api/review/read_byname.php?nimi=j
 
 Tulos:
 [
@@ -140,13 +140,13 @@ Jos ei arvosteluja ei löytynyt.
 
 ### Read_single
 
-.../api/arvostelu/read_single.php?id=...
+.../api/review/read_single.php?id=...
 
 Hakee tietokannasta arvostelun id:n arvostelun.
 
 ```
 Esimerkki:
-GET http://localhost/.../api/arvostelu/read_single.php?id=1
+GET http://localhost/.../api/review/read_single.php?id=1
 
 Tulos:
 {
@@ -168,12 +168,12 @@ Jos ei annettu id ei ole numero tai id on pienempi kuin 0.
 
 ### Update
 
-.../api/arvostelu/update.php
+.../api/review/update.php
 
 Päivittää arvostelun id:n perusteella.
 
 ```
-PUT http://localhost/.../api/arvostelu/update.php
+PUT http://localhost/.../api/review/update.php
 Content-Type: application/json
 
 {

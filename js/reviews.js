@@ -21,6 +21,9 @@ function search(event) {
 					for (var i = 0; i < results.length; i++) {
 						var section = document.createElement('section');
 						section.className = 'review';
+						if (i === 0) {
+							section.id = 'first';
+						}
 						var stars = '';
 						// Täydet tähdet
 						for (var j = 0; j < results[i].arvosana; j++) {
@@ -42,6 +45,8 @@ function search(event) {
 							'</dl>';
 						div.appendChild(section);
 					}
+					var element = document.getElementById('first');
+					element.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
 				}
 			}
 		};
