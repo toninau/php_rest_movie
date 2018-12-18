@@ -244,7 +244,7 @@ body {
 /*Back to top button end*/
 
 /*---Media Queries --*/
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     #search-form {
         width: 200px;
     }
@@ -270,7 +270,7 @@ body {
     }
 }
 
-@media (max-width: 576px) {
+@media only screen and (max-width: 576px) {
     #search-form {
         width: 130px;
     }
