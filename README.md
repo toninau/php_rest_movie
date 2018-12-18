@@ -1,20 +1,22 @@
 # Movie-Reviews
 
 Made by: Toni Naumanen<br>
-includes: REST-api, database, user interface.
+includes: REST-api, database, user interface. <br>
+Database is in Finnish. JavaScript and Php comments are also in Finnish.
 
 ## REST-api
 
-Rest-api description is in finnish.
+Rest-api description is in Finnish and English.
 
 ### Create
 
 .../api/review/create.php
 
-Luo arvostelun. ID annetaan automaattisesti.
+Luo arvostelun. ID annetaan automaattisesti. <br>
+Creates review. ID is given automatically.
 
 ```
-Esimerkki:
+Example:
 POST http://localhost/.../api/review/create.php
 Content-Type: application/json
 
@@ -24,8 +26,10 @@ Content-Type: application/json
 	"arvosana": 5
 }
 ```
-Tulos:<br>
-Arvostelun luonti onnistui.
+
+Arvostelun luonti onnistui. <br>
+The review was successfully created.
+
 
 ```
 {
@@ -33,7 +37,8 @@ Arvostelun luonti onnistui.
 }
 ```
 
-Arvostelun luonti epäonnistui.
+Arvostelun luonti epäonnistui. <br>
+Failed to create review.
 
 ```
 {
@@ -45,10 +50,11 @@ Arvostelun luonti epäonnistui.
 
 .../api/review/delete.php
 
-Poistaa arvostelun id:n perusteella.
+Poistaa arvostelun id:n perusteella. <br>
+Deletes the review based on the id.
 
 ```
-Esimerkki:
+Example:
 DELETE http://localhost/.../api/review/delete.php
 Content-Type: application/json
 
@@ -56,8 +62,9 @@ Content-Type: application/json
 	"id": 6
 }
 ```
-Tulos:<br>
-Arvostelun poisto onnistui.
+
+Arvostelun poisto onnistui. <br>
+The review was successfully deleted.
 
 ```
 {
@@ -65,7 +72,8 @@ Arvostelun poisto onnistui.
 }
 ```
 
-Arvostelun poisto epäonnistui.
+Arvostelun poisto epäonnistui. <br>
+Failed to delete the review.
 
 ```
 {
@@ -77,14 +85,19 @@ Arvostelun poisto epäonnistui.
 
 .../api/review/read.php
 
-Hakee tietokannan kaikki arvostelut.
-Palauttaa listan.
+Hakee tietokannan kaikki arvostelut. Palauttaa listan, jos arvosteluja löytyi. <br>
+Retrieves all the reviews from the database. Returns an array if reviews were found.
+
 
 ```
-Esimerkki:
+Example:
 GET http://localhost/.../api/review/read.php
+```
 
-Tulos:
+Arvosteluja löytyi. <br>
+Reviews were found.
+
+```
 [
     {
         "id": "1",
@@ -98,7 +111,8 @@ Tulos:
 ]
 ```
 
-Jos ei arvosteluja ei löytynyt.
+Arvosteluja ei löytynyt. <br>
+Reviews were not found.
 
 ```
 {
@@ -110,14 +124,19 @@ Jos ei arvosteluja ei löytynyt.
 
 .../api/review/read_byname.php?nimi=...
 
-Hakee tietokannasta arvostelun/arvostelut.
-Palauttaa listan.
+Hakee tietokannasta arvostelun/arvostelut elokuvan nimen perusteella. Palauttaa listan, jos arvosteluja löytyi. <br>
+Retrieves reviews based on the movie's title. Returns an array if reviews were found.
+ 
 
 ```
-Esimerkki:
+Example:
 GET http://localhost/.../api/review/read_byname.php?nimi=j
+```
 
-Tulos:
+Arvosteluja löytyi. <br>
+Reviews were found.
+
+```
 [
     {
         "id": "1",
@@ -130,7 +149,8 @@ Tulos:
 
 ```
 
-Jos ei arvosteluja ei löytynyt.
+Arvosteluja ei löytynyt. <br>
+Reviews were not found.
 
 ```
 {
@@ -142,13 +162,19 @@ Jos ei arvosteluja ei löytynyt.
 
 .../api/review/read_single.php?id=...
 
-Hakee tietokannasta arvostelun id:n arvostelun.
+Hakee tietokannasta arvostelun id:n perusteella. <br>
+Retrieves review from the database based on the given id.
 
 ```
-Esimerkki:
+Example:
 GET http://localhost/.../api/review/read_single.php?id=1
+```
 
-Tulos:
+
+Arvostelu löytyi. <br>
+Review was found.
+
+```
 {
     "id": "1",
     "nimi": "jasmine test",
@@ -158,7 +184,8 @@ Tulos:
 }
 ```
 
-Jos ei annettu id ei ole numero tai id on pienempi kuin 0.
+Arvostelua ei löytynyt. <br>
+Review was not found.
 
 ```
 {
@@ -171,11 +198,14 @@ Jos ei annettu id ei ole numero tai id on pienempi kuin 0.
 .../api/review/update.php
 
 Päivittää arvostelun id:n perusteella.
+Updates the review based on the given id.
 
 ```
 PUT http://localhost/.../api/review/update.php
 Content-Type: application/json
+```
 
+```
 {
 	"nimi": "test,
 	"kommentti": "test",
@@ -183,8 +213,9 @@ Content-Type: application/json
 	"id": 2
 }
 ```
-Tulos:<br>
-Arvostelun päivitys onnistui.
+
+Arvostelun päivitys onnistui. <br>
+Review was successfully updated.
 
 ```
 {
@@ -192,7 +223,8 @@ Arvostelun päivitys onnistui.
 }
 ```
 
-Arvostelun päivitys epäonnistui.
+Arvostelun päivitys epäonnistui. <br>
+Failed to update the review.
 
 ```
 {
