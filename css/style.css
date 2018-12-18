@@ -62,7 +62,7 @@ body {
     margin: 0;
     border: none;
     background: none;
-    outline: none!important;
+    outline: none;
     cursor: pointer;
 }
 
