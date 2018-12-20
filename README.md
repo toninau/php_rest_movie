@@ -104,6 +104,7 @@ Reviews were found.
         "nimi": "jasmine test",
         "kommentti": "test",
         "arvosana": "5",
+        "kuva": null,
         "aika": "2018-12-02 18:00:36"
     },
     ...
@@ -143,6 +144,7 @@ Reviews were found.
         "nimi": "jasmine test",
         "kommentti": "test",
         "arvosana": "5",
+        "kuva": null,
         "aika": "2018-12-02 18:00:36"
     }
 ]
@@ -180,6 +182,7 @@ Review was found.
     "nimi": "jasmine test",
     "kommentti": "test",
     "arvosana": "5",
+    "kuva": null,
     "aika": "2018-12-02 18:00:36"
 }
 ```
