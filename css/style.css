@@ -286,7 +286,7 @@ body {
         display: block;
         width: auto;
         height: 200px;
-        max-width: none;
+        max-width: 200px;
         max-height: none;
         padding: 2em 0 0 0;
         border-radius: 0;
