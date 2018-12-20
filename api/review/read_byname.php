@@ -35,6 +35,7 @@ if($num > 0) {
             'nimi' => $nimi,
             'kommentti' => $kommentti,
             'arvosana' => $arvosana,
+            'kuva' => $kuva,
             'aika' => $aika
         );
 

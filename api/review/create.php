@@ -23,9 +23,10 @@ $data = json_decode(file_get_contents("php://input"));
 $review->nimi = $data->nimi;
 $review->kommentti = $data->kommentti;
 $review->arvosana = $data->arvosana;
+$review->kuva = $data->kuva;
 // Tarkistus
 // Arvostelun luonti epäonnistuu, jos annettua id:tä ei löydy, vaikka ilmoitus on "arvostelu luotu".
-if (strlen($review->nimi) <= 50 && strlen($review->kommentti) <= 300 && ($review->arvosana > 0 && $review->arvosana < 6)) {
+if (strlen($review->nimi) <= 50 && strlen($review->kommentti) <= 300 && ($review->arvosana > 0 && $review->arvosana < 6) && $review->kuva <= 150) {
     if ($review->create()) {
         echo json_encode(
             array('message' => 'Arvostelu luotu')

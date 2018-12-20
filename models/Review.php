@@ -11,6 +11,7 @@ class Review
     public $nimi;
     public $kommentti;
     public $arvosana;
+    public $kuva;
     public $aika;
 
     // Konstruktori
@@ -53,6 +54,7 @@ class Review
         $this->nimi = $row['nimi'];
         $this->kommentti = $row['kommentti'];
         $this->arvosana = $row['arvosana'];
+        $this->kuva = $row['kuva'];
         $this->aika = $row['aika'];
     }
 
@@ -75,7 +77,7 @@ class Review
     public function create()
     {
         // SQL kysely
-        $query = 'INSERT INTO ' . $this->table . ' SET nimi = :nimi, kommentti = :kommentti, arvosana = :arvosana';
+        $query = 'INSERT INTO ' . $this->table . ' SET nimi = :nimi, kommentti = :kommentti, arvosana = :arvosana, kuva = :kuva';
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -84,11 +86,13 @@ class Review
         $this->nimi = htmlspecialchars(strip_tags($this->nimi));
         $this->kommentti = htmlspecialchars(strip_tags($this->kommentti));
         $this->arvosana = htmlspecialchars(strip_tags($this->arvosana));
+        $this->kuva = htmlspecialchars(strip_tags($this->kuva));
 
         // Datan yhdistäminen
         $stmt->bindParam(':nimi', $this->nimi);
         $stmt->bindParam(':kommentti', $this->kommentti);
         $stmt->bindParam(':arvosana', $this->arvosana);
+        $stmt->bindParam(':kuva', $this->kuva);
 
         // Execute query
         if ($stmt->execute()) {
@@ -105,7 +109,7 @@ class Review
     public function update()
     {
         // SQL kysely
-        $query = 'UPDATE ' . $this->table . ' SET nimi = :nimi, kommentti = :kommentti, arvosana = :arvosana WHERE id = :id';
+        $query = 'UPDATE ' . $this->table . ' SET nimi = :nimi, kommentti = :kommentti, arvosana = :arvosana, kuva = :kuva WHERE id = :id';
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -114,12 +118,14 @@ class Review
         $this->nimi = htmlspecialchars(strip_tags($this->nimi));
         $this->kommentti = htmlspecialchars(strip_tags($this->kommentti));
         $this->arvosana = htmlspecialchars(strip_tags($this->arvosana));
+        $this->kuva = htmlspecialchars(strip_tags($this->kuva));
         $this->id = htmlspecialchars(strip_tags($this->id));
 
         // Datan yhdistäminen
         $stmt->bindParam(':nimi', $this->nimi);
         $stmt->bindParam(':kommentti', $this->kommentti);
         $stmt->bindParam(':arvosana', $this->arvosana);
+        $stmt->bindParam(':kuva', $this->kuva);
         $stmt->bindParam(':id', $this->id);
 
         // Execute query

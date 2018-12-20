@@ -21,7 +21,8 @@ $review->id = $data->id;
 $review->nimi = $data->nimi;
 $review->kommentti = $data->kommentti;
 $review->arvosana = $data->arvosana;
-if (strlen($review->nimi) <= 50 && strlen($review->kommentti) <= 300 && ($review->arvosana > 0 && $review->arvosana < 6)) {
+$review->kuva = $data->kuva;
+if (strlen($review->nimi) <= 50 && strlen($review->kommentti) <= 300 && ($review->arvosana > 0 && $review->arvosana < 6) && $review->kuva <= 150) {
     if ($review->update()) {
         echo json_encode(
             array('message' => 'Arvostelu päivitetty')

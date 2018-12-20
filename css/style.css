@@ -18,7 +18,7 @@ body {
 
 /*topnav*/
 .topnav {
-    background-image: linear-gradient(to right, #f2f2f2, #ffffff, #f2f2f2);
+    background-image: linear-gradient(to right, #e6e6e6, #ffffff, #e6e6e6);
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -106,11 +106,12 @@ body {
 .review {
     border: solid 2px #FFFFFF;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.45);
-    background-color: #e6e6e6;
+    background-image: linear-gradient(to right, #e6e6e6, #ffffff, #e6e6e6);
     border-radius: 3em 0 3em 3em;
     margin: 2em;
     padding: 0 2em 2em 2em;
     position: relative;
+    height: 338px;
     color: rgba(0, 0, 0, 0.85);
 }
 
@@ -123,6 +124,10 @@ body {
     font-weight: 500;
 }
 
+.review dl {
+    margin-right: 180px;
+}
+
 .review dt {
     font-weight: bold;
     margin: 0.5rem 0 0.5rem 0;
@@ -131,6 +136,15 @@ body {
 .review dd {
     border-bottom: solid 1px grey;
     padding: 0 0 0.5rem 0;
+}
+
+.review-img {
+    position: absolute;
+    max-width: 180px;
+    max-height: 274px;
+    bottom: 0;
+    right: 0;
+    border-radius: 0 0 3em 0;
 }
 /*Review boxes end*/
 
@@ -253,8 +267,29 @@ body {
         width: 140px;
     }
 
+    .review {
+        height: auto;
+    }
+
+    .review dl {
+        margin-right: 0;
+    }
+
     .review dd, dt  {
         text-align: center;
+    }
+
+    .review-img {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: auto;
+        height: 200px;
+        max-width: none;
+        max-height: none;
+        padding: 2em 0 0 0;
+        border-radius: 0;
     }
 
     .image-text {

@@ -25,6 +25,7 @@ if (is_numeric($review->id) && $review->id > 0) {
         'nimi' => $review->nimi,
         'kommentti' => $review->kommentti,
         'arvosana' => $review->arvosana,
+        'kuva' => $review->kuva,
         'aika' => $review->aika
     );
     print_r(json_encode($arvostelu_arr));

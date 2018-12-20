@@ -33,6 +33,12 @@ function search(event) {
 						for (var j = 0; j < 5-results[i].arvosana; j++) {
 							stars += '&#9734';
 						}
+						// Kuvan asetus
+						var url = 'img/nopicture.png';
+						if (results[i].kuva != null) {
+							url = '"' + results[i].kuva + '"';
+							console.log(results[i].kuva);
+						}
 						// HTML muotoilu tiedoille
 						section.innerHTML = '<h3>' + results[i].nimi + '</h3>' +
 							'<dl>' +
@@ -42,7 +48,8 @@ function search(event) {
 								'<dd>' + stars + '</dd>' +
 								'<dt>Time</dt>' +
 								'<dd>' + results[i].aika + '</dd>' +
-							'</dl>';
+							'</dl>' +
+							'<img class="review-img" src=' + url + '>';
 						div.appendChild(section);
 						if (i === 0) {
 							section.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
@@ -69,10 +76,12 @@ function processForm(event) {
 	var name = document.getElementById('name').value;
 	var comment = document.getElementById('comment').value;
 	var rating = document.getElementById('rating').value;
+	var image = document.getElementById('image').value;
 	var json = {
 		'nimi': name,
 		'kommentti': comment,
-		'arvosana': rating
+		'arvosana': rating,
+		'kuva': image
 	};
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
