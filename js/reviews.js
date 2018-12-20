@@ -35,9 +35,8 @@ function search(event) {
 						}
 						// Kuvan asetus
 						var url = 'img/nopicture.png';
-						if (results[i].kuva != null) {
-							url = '"' + results[i].kuva + '"';
-							console.log(results[i].kuva);
+						if (results[i].kuva !== 'kuvaton' && results[i].kuva !== null) {
+							url = results[i].kuva;
 						}
 						// HTML muotoilu tiedoille
 						section.innerHTML = '<h3>' + results[i].nimi + '</h3>' +
@@ -49,7 +48,7 @@ function search(event) {
 								'<dt>Time</dt>' +
 								'<dd>' + results[i].aika + '</dd>' +
 							'</dl>' +
-							'<img class="review-img" src=' + url + '>';
+							'<img class="review-img" src="' + url + '" onerror="this.onerror=null;this.src=\'img/nopicture.png\';"/>';
 						div.appendChild(section);
 						if (i === 0) {
 							section.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
@@ -76,7 +75,10 @@ function processForm(event) {
 	var name = document.getElementById('name').value;
 	var comment = document.getElementById('comment').value;
 	var rating = document.getElementById('rating').value;
-	var image = document.getElementById('image').value;
+	var image = 'kuvaton';
+	if (document.getElementById('image').value != '') {
+		image = document.getElementById('image').value;
+	}
 	var json = {
 		'nimi': name,
 		'kommentti': comment,
