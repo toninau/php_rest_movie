@@ -31,12 +31,12 @@ if (strlen($review->nimi) <= 50 && strlen($review->kommentti) <= 300 && ($review
     if ($review->create()) {
         http_response_code(200);
         echo json_encode(
-            array('message' => 'Arvostelu luotu')
+            array('message' => 'Review created')
         );
     }
 } else {
     http_response_code(405);
     echo json_encode(
-        array('message' => 'Arvostelua ei luotu')
+        array('message' => 'Failed to create review')
     );
 }
