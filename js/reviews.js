@@ -48,7 +48,7 @@ function search(event) {
 								'<dt>Time</dt>' +
 								'<dd>' + results[i].aika + '</dd>' +
 							'</dl>' +
-							'<img class="review-img" src="' + url + '" onerror="this.onerror=null;this.src=' + url + ';"/>';
+							'<img class="review-img" src="' + url + '" onerror="this.onerror=null;this.src=\'img/nopicture.png\';"/>';
 						div.appendChild(section);
 						if (i === 0) {
 							section.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
@@ -76,7 +76,6 @@ function processForm(event) {
 	var comment = document.getElementById('comment').value;
 	var rating = document.getElementById('rating').value;
 	var image = document.getElementById('image').value;
-	var reviewSent = false;
 	var json = {
 		'nimi': name,
 		'kommentti': comment,
@@ -87,13 +86,12 @@ function processForm(event) {
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result = JSON.parse(xmlhttp.responseText);
-			reviewSent = true;
+			alert(result.message);
+		} else if (xmlhttp.readyState == 4 && xmlhttp.status == 405) {
+			var result = JSON.parse(xmlhttp.responseText);
 			alert(result.message);
 		}
 	};
-	if (reviewSent === false) {
-		alert('Arvostelua ei luotu');
-	}
 	xmlhttp.open('POST', 'api/review/create.php', true);
 	//Headerit
 	xmlhttp.setRequestHeader('Content-type', 'application/json');
