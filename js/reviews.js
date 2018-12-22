@@ -76,6 +76,7 @@ function processForm(event) {
 	var comment = document.getElementById('comment').value;
 	var rating = document.getElementById('rating').value;
 	var image = document.getElementById('image').value;
+	var reviewSent = false;
 	var json = {
 		'nimi': name,
 		'kommentti': comment,
@@ -86,9 +87,13 @@ function processForm(event) {
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			var result = JSON.parse(xmlhttp.responseText);
+			reviewSent = true;
 			alert(result.message);
 		}
 	};
+	if (reviewSent === false) {
+		alert('Arvostelua ei luotu');
+	}
 	xmlhttp.open('POST', 'api/review/create.php', true);
 	//Headerit
 	xmlhttp.setRequestHeader('Content-type', 'application/json');
