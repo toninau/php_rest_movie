@@ -48,7 +48,7 @@ function search(event) {
 								'<dt>Time</dt>' +
 								'<dd>' + results[i].aika + '</dd>' +
 							'</dl>' +
-							'<img class="review-img" src="' + url + '" onerror="this.onerror=null;this.src=\'img/nopicture.png\';"/>';
+							'<img class="review-img" src="' + url + '" onerror="this.onerror=null;this.src=' + url + ';"/>';
 						div.appendChild(section);
 						if (i === 0) {
 							section.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
