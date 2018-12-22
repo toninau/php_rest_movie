@@ -29,11 +29,13 @@ $review->kuva = $data->kuva;
 // Arvostelun luonti epäonnistuu, jos annettua id:tä ei löydy, vaikka ilmoitus on "arvostelu luotu".
 if (strlen($review->nimi) <= 50 && strlen($review->kommentti) <= 300 && ($review->arvosana > 0 && $review->arvosana < 6) && strlen($review->kuva) <= 150) {
     if ($review->create()) {
+        http_response_code(200);
         echo json_encode(
             array('message' => 'Arvostelu luotu')
         );
     }
 } else {
+    http_response_code(405);
     echo json_encode(
         array('message' => 'Arvostelua ei luotu')
     );

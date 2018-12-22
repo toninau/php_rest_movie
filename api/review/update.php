@@ -25,11 +25,13 @@ $review->kuva = $data->kuva;
 
 if (strlen($review->nimi) <= 50 && strlen($review->kommentti) <= 300 && ($review->arvosana > 0 && $review->arvosana < 6) && strlen($review->kuva) <= 150) {
     if ($review->update()) {
+        http_response_code(200);
         echo json_encode(
             array('message' => 'Arvostelu päivitetty')
         );
     }
 } else {
+    http_response_code(405);
     echo json_encode(
         array('message' => 'Arvostelua ei päivitetty')
     );

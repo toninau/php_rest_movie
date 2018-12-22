@@ -28,8 +28,10 @@ if (is_numeric($review->id) && $review->id > 0) {
         'kuva' => $review->kuva,
         'aika' => $review->aika
     );
+    http_response_code(200);
     print_r(json_encode($arvostelu_arr));
 } else {
+    http_response_code(404);
     echo json_encode(
         array('message' => 'Ei arvosteluja')
     );

@@ -22,10 +22,12 @@ $review->id = $data->id;
 
 
 if ($review->delete()) {
+    http_response_code(200);
     echo json_encode(
         array('message' => 'Arvostelu poistettu')
     );
 } else {
+    http_response_code(405);
     echo json_encode(
         array('message' => 'Arvostelua ei poistettu')
     );
