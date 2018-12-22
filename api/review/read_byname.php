@@ -42,12 +42,9 @@ if($num > 0) {
         // Lisää itemin listaan
         array_push($arvostelu_arr, $arvostelu_item);
     }
-    http_response_code(200);
     // Muuttaa arrayn json-muotoon ja echo.
     echo json_encode($arvostelu_arr);
-
 } else {
-    http_response_code(404);
     echo json_encode(
         array('message' => 'Ei arvosteluja')
     );
