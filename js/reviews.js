@@ -35,7 +35,7 @@ function search(event) {
 						}
 						// Kuvan asetus
 						var url = 'img/nopicture.png';
-						if (results[i].kuva !== 'kuvaton' && results[i].kuva !== null) {
+						if (results[i].kuva !== null) {
 							url = results[i].kuva;
 						}
 						// HTML muotoilu tiedoille
@@ -75,10 +75,7 @@ function processForm(event) {
 	var name = document.getElementById('name').value;
 	var comment = document.getElementById('comment').value;
 	var rating = document.getElementById('rating').value;
-	var image = 'kuvaton';
-	if (document.getElementById('image').value != '') {
-		image = document.getElementById('image').value;
-	}
+	var image = document.getElementById('image').value;
 	var json = {
 		'nimi': name,
 		'kommentti': comment,

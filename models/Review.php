@@ -76,6 +76,8 @@ class Review
     // Luo arvostelun
     public function create()
     {
+        $null = NULL;
+
         // SQL kysely
         $query = 'INSERT INTO ' . $this->table . ' SET nimi = :nimi, kommentti = :kommentti, arvosana = :arvosana, kuva = :kuva';
 
@@ -92,7 +94,12 @@ class Review
         $stmt->bindParam(':nimi', $this->nimi);
         $stmt->bindParam(':kommentti', $this->kommentti);
         $stmt->bindParam(':arvosana', $this->arvosana);
-        $stmt->bindParam(':kuva', $this->kuva);
+
+        if ($this->kuva !== '') {
+            $stmt->bindParam(':kuva', $this->kuva);
+        } else {
+            $stmt->bindParam(':kuva', $null, PDO::PARAM_NULL);
+        }
 
         // Execute query
         if ($stmt->execute()) {
@@ -108,6 +115,8 @@ class Review
     // Päivittää arvostelun id:n perusteella
     public function update()
     {
+        $null = NULL;
+
         // SQL kysely
         $query = 'UPDATE ' . $this->table . ' SET nimi = :nimi, kommentti = :kommentti, arvosana = :arvosana, kuva = :kuva WHERE id = :id';
 
@@ -125,7 +134,13 @@ class Review
         $stmt->bindParam(':nimi', $this->nimi);
         $stmt->bindParam(':kommentti', $this->kommentti);
         $stmt->bindParam(':arvosana', $this->arvosana);
-        $stmt->bindParam(':kuva', $this->kuva);
+
+        if ($this->kuva !== '') {
+            $stmt->bindParam(':kuva', $this->kuva);
+        } else {
+            $stmt->bindParam(':kuva', $null, PDO::PARAM_NULL);
+        }
+
         $stmt->bindParam(':id', $this->id);
 
         // Execute query
