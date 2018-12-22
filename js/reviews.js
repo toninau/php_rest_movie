@@ -14,47 +14,46 @@ function search(event) {
 		xmlhttp.onreadystatechange = function () {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				var results = JSON.parse(xmlhttp.responseText);
-				// Ei hakutuloksia, palvelin antaa { message: 'Ei arvosteluja' }
-				if (results.message == 'Ei arvosteluja') {
-					var write = document.createElement('h1');
-					write.className = 'center-text';
-					write.innerHTML = 'No search results';
-					div.appendChild(write);
-				} else {
-					for (var i = 0; i < results.length; i++) {
-						var section = document.createElement('section');
-						section.className = 'review';
-						var stars = '';
-						// Täydet tähdet
-						for (var j = 0; j < results[i].arvosana; j++) {
-							stars += '&#9733';
-						}
-						// Tyhjät tähdet
-						for (var j = 0; j < 5-results[i].arvosana; j++) {
-							stars += '&#9734';
-						}
-						// Kuvan asetus
-						var url = 'img/nopicture.png';
-						if (results[i].kuva !== null) {
-							url = results[i].kuva;
-						}
-						// HTML muotoilu tiedoille
-						section.innerHTML = '<h3>' + results[i].nimi + '</h3>' +
-							'<dl>' +
-								'<dt>Comment</dt>' +
-								'<dd>' + results[i].kommentti + '</dd>' +
-								'<dt>Rating</dt>' +
-								'<dd>' + stars + '</dd>' +
-								'<dt>Time</dt>' +
-								'<dd>' + results[i].aika + '</dd>' +
-							'</dl>' +
-							'<img class="review-img" src="' + url + '" onerror="this.onerror=null;this.src=\'img/nopicture.png\';"/>';
-						div.appendChild(section);
-						if (i === 0) {
-							section.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
-						}
+				for (var i = 0; i < results.length; i++) {
+					var section = document.createElement('section');
+					section.className = 'review';
+					var stars = '';
+					// Täydet tähdet
+					for (var j = 0; j < results[i].arvosana; j++) {
+						stars += '&#9733';
+					}
+					// Tyhjät tähdet
+					for (var j = 0; j < 5-results[i].arvosana; j++) {
+						stars += '&#9734';
+					}
+					// Kuvan asetus
+					var url = 'img/nopicture.png';
+					if (results[i].kuva !== null) {
+						url = results[i].kuva;
+					}
+					// HTML muotoilu tiedoille
+					section.innerHTML = '<h3>' + results[i].nimi + '</h3>' +
+						'<dl>' +
+							'<dt>Comment</dt>' +
+							'<dd>' + results[i].kommentti + '</dd>' +
+							'<dt>Rating</dt>' +
+							'<dd>' + stars + '</dd>' +
+							'<dt>Time</dt>' +
+							'<dd>' + results[i].aika + '</dd>' +
+						'</dl>' +
+						'<img class="review-img" src="' + url + '" onerror="this.onerror=null;this.src=\'img/nopicture.png\';"/>';
+					div.appendChild(section);
+					if (i === 0) {
+						section.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
 					}
 				}
+			} else if (xmlhttp.readyState == 4 && xmlhttp.status == 404) {
+				var results = JSON.parse(xmlhttp.responseText);
+				// Ei hakutuloksia, palvelin antaa { message: 'Ei arvosteluja' }
+				var write = document.createElement('h1');
+				write.className = 'center-text';
+				write.innerHTML = results.message;
+				div.appendChild(write);
 			}
 		};
 		xmlhttp.open('GET', 'api/review/read_byname.php?nimi=' + str, true);
