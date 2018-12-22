@@ -33,7 +33,7 @@ The review was successfully created.
 
 ```
 {
-	"message": "Arvostelu luotu"
+	"message": "Review created"
 }
 ```
 
@@ -42,7 +42,7 @@ Failed to create review.
 
 ```
 {
-	"message": "Arvostelua ei luotu"
+	"message": "Failed to create review"
 }
 ```
 
@@ -156,7 +156,7 @@ Reviews were not found.
 
 ```
 {
-	"message": "Ei arvosteluja"
+	"message": "No reviews found"
 }
 ```
 
