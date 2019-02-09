@@ -6,7 +6,7 @@ Database is in Finnish. JavaScript and Php comments are also in Finnish.
 
 ## Demonstration
 
-![Website_demo](img/website.gif).
+![Website_demo](img/website.gif)
 
 ## REST-api
 
