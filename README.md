@@ -4,6 +4,10 @@ Made by: Toni Naumanen<br>
 includes: REST-api, database, user interface. <br>
 Database is in Finnish. JavaScript and Php comments are also in Finnish.
 
+## Demonstration
+
+![Website_demo](img/website.gif).
+
 ## REST-api
 
 Rest-api description is in Finnish and English.
